@@ -5,17 +5,17 @@ from django.utils import timezone
 from uuid import uuid
 from django.conf import settings
 from django.urls import reverse
-import json
+# import json
 import os
 
 # Create your models here.
-class category(models.Model)
+class Category(models.Model):
     title=models.CharField(null=True,blank=True,max_length=200)
     uniqueId=models.SlugField(max-max_length=500,unique=True,blank=True,null=True)
     date_created=models.DateTimeField(blank=True,null=True)
     last_updated=models.DateTimeField(blank=True,null=True)
 
-    def_str_(self):
+    def _str_(self):
         return '{}{}'.format(self.title,self.uniqueId)
     
     def get_absolute_url(self):
@@ -33,3 +33,7 @@ class category(models.Model)
            super{(category,self).save(*args, **kwargs)}
 
 
+class Image(models.Model):
+    description = models.TextField(null=True,blank=True)
+    altText = models.TextField(null=True,blank=True)
+    hashtags= models.CharField(null=True,blank=True,max_length=300)
